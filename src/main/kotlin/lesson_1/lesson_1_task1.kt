@@ -1,5 +1,8 @@
 package org.example.lesson_1
 
 fun main() {
-    println("Hello, Kotlin! :)")
+
+    val orderAmount: Int = 75
+    val gratitudeText: String = "Thank you for your help!"
+
 }
