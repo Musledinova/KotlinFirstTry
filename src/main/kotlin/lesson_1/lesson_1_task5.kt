@@ -4,11 +4,15 @@ fun main() {
 
     val secondsEquivalentInTheSpace: Int = 6480
 
-    val fullHoursInTheSpace = secondsEquivalentInTheSpace / 3600
-    val remainingSecondsAfterHours = secondsEquivalentInTheSpace % 3600
+    val secondsInMinute: Int = 60
+    val minutesInHour: Int = 60
+    val secondsInHour: Int = secondsInMinute * minutesInHour
 
-    val fullMinutesInTheSpace = remainingSecondsAfterHours / 60
-    val seconds = remainingSecondsAfterHours % 60
+    val fullHoursInTheSpace = secondsEquivalentInTheSpace / secondsInHour
+    val remainingSecondsAfterHours = secondsEquivalentInTheSpace % secondsInHour
+
+    val fullMinutesInTheSpace = remainingSecondsAfterHours / secondsInMinute
+    val seconds = remainingSecondsAfterHours % secondsInMinute
 
     println(String.format("Total tine in the Cosmos is: %02d:%02d:%02d", fullHoursInTheSpace, fullMinutesInTheSpace, seconds))
 
