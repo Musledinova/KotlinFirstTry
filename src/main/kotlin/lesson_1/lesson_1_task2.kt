@@ -9,9 +9,8 @@ fun main() {
     println("Customers gratitude: \"$gratitudeText\"")
 
     var numberOfStoreEmployees: Int = 2000
-//    println(numberOfEmployees)
 
-    numberOfStoreEmployees = 2000 - 1  // fired 1 person
+    numberOfStoreEmployees = 2000 - 1
     println("Current employee number: $numberOfStoreEmployees")
 
 }
