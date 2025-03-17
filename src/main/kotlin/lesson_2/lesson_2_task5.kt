@@ -1,5 +1,7 @@
 package org.example.lesson_2
 
+import kotlin.math.pow
+
 
 fun main() {
 
@@ -7,12 +9,8 @@ fun main() {
     val percentagePerYear = 16.7
     val investmentTimeYears = 20
 
-    var investedAmountWithEarnedPercentage = investedAmount
-
-    for (i in 1..investmentTimeYears) {
-        val earnedPercentageSumPerYear = investedAmountWithEarnedPercentage * percentagePerYear / 100.0
-        investedAmountWithEarnedPercentage += earnedPercentageSumPerYear
-    }
+    val investedAmountWithEarnedPercentage = investedAmount * (1 + percentagePerYear / 100).pow(investmentTimeYears)
 
     println("Total amount after 20 years: ${"%.3f".format(investedAmountWithEarnedPercentage)}")
+
 }
