@@ -1,8 +1,8 @@
 package org.example.lesson_5
 
 fun main() {
-    val firstNumber = (Math.random() * 42 + 1).toInt()
-    val secondNumber = (Math.random() * 42 + 1).toInt()
+    val firstNumber = (0..42).random()
+    val secondNumber = (0..42).random()
 
     println("Введите число от 0 до 42 включительно: ")
     val firstNumberFromUser = readln().toInt()
