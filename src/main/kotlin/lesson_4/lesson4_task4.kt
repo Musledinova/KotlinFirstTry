@@ -1,16 +1,15 @@
 package org.example.lesson_4
 
 fun main() {
-
     val trainingDay = 5
+    val isEven = trainingDay % 2 == 0
 
     println(
         """
-        Упражнения для рук: ${(trainingDay % 2 == 1)}
-        Упражнения для ног: ${(trainingDay % 2 == 0)}
-        Упражнения для спины: ${(trainingDay % 2 == 1)}
-        Упражнения для пресса: ${(trainingDay % 2 == 0)}
-    """.trimIndent()
+        Упражнения для рук: ${!isEven}
+        Упражнения для ног: $isEven
+        Упражнения для спины: ${!isEven}
+        Упражнения для пресса: $isEven
+        """.trimIndent(),
     )
-
 }
