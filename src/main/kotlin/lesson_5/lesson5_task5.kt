@@ -1,7 +1,8 @@
 package org.example.lesson_5
 
 fun main() {
-    val winningNumbers = List(3) { (0..42).random() }
+    val numberRange = 0..42
+    val winningNumbers = List(3) { (numberRange).random() }
     val numbersFromUser: MutableList<Int> = mutableListOf()
 
     println("Введите первое число от 0 до 42 включительно: ")
@@ -13,7 +14,9 @@ fun main() {
     println("Введите третье число от 0 до 42 включительно: ")
     numbersFromUser.add(readln().toInt())
 
-    when (val result = winningNumbers.intersect(numbersFromUser.toSet()).size) {
+    val result = winningNumbers.intersect(numbersFromUser.toSet()).size
+
+    when (result) {
         3 -> println("Поздравляем! Вы угадали все $result числа и выиграли джек-пот!")
         2 -> println("Поздравляем! Вы угадали $result числа и выиграли крупный приз!")
         1 -> println("Поздравляем! Вы угадали $result число и выиграли приз!")
