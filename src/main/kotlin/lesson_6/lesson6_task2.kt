@@ -1,14 +1,12 @@
 package org.example.lesson_6
 
+const val MILLISECONDS = 1000L
+
 fun main() {
     println("Установите время в секундах для таймера: ")
-    val timeInSeconds = readln().toInt()
+    val timeInSeconds = readln().toLong()
 
-    var time = timeInSeconds
-    do {
-        time--
-        Thread.sleep(1000)
-    } while (time > 0)
+    Thread.sleep(timeInSeconds * MILLISECONDS)
 
     println("Прошло $timeInSeconds секунд")
 }
