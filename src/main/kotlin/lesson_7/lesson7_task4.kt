@@ -4,8 +4,8 @@ fun main() {
     println("Установите время таймера в секундах: ")
     var timeToCount = readln().toInt()
 
-    for (i in 1..timeToCount) {
-        println("Осталось: ${timeToCount--}")
+    for (i in timeToCount downTo 1) {
+        println("Осталось: $i")
         Thread.sleep(1000)
     }
 
