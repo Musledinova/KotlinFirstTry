@@ -6,13 +6,10 @@ fun main() {
     println("Введите необходимый ингредиент: ")
     val ingredient = readln()
 
-    for (i in plov) {
-        if (plov.contains(ingredient)) {
-            println("Ингредиент [$ingredient] в рецепте есть")
-            break
-        }
-    }
-    if (!plov.contains(ingredient)) {
+    if (plov.contains(ingredient)) {
+        println("Ингредиент [$ingredient] в рецепте есть")
+//        break
+    } else {
         println("Такого ингредиента в рецепте нет")
     }
 }
