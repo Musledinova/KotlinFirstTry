@@ -7,7 +7,7 @@ fun main() {
     val user = getDiceValue("пользователь")
     println("Выпавшее значение: $user")
 
-    getWinner(computer, user)
+    println(getWinner(computer, user))
 }
 
 fun getDiceValue(player: String): Int {
