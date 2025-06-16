@@ -8,12 +8,13 @@ fun main() {
     println("Какой ингредиент Вы хотите заменить в блюде?")
     val ingredient = readln()
 
-    if (plov.contains(ingredient)) {
+    val index = plov.indexOf(ingredient)
+
+    if (index != -1) {
         println("На какой ингредиент Вы хотите заменить $ingredient в блюде?")
         val newIngredient = readln()
 
-        val changingElement = plov.indexOf(ingredient)
-        plov[changingElement] = newIngredient
+        plov[index] = newIngredient
 
         println("Готово! Вы сохранили следующий список: ${plov.joinToString()}")
     } else {
