@@ -8,7 +8,6 @@ fun main() {
 
     if (plov.contains(ingredient)) {
         println("Ингредиент [$ingredient] в рецепте есть")
-//        break
     } else {
         println("Такого ингредиента в рецепте нет")
     }
