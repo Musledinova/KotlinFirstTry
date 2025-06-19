@@ -9,15 +9,15 @@ fun main() {
 
 fun generatePassword(length: Int): String {
     val digits = ('0'..'9')
-    val symbols = "!\"#$%&'()*+,-./ "
+    val symbols = CharRange('!', '/').joinToString("")
 
-    val password: MutableList<String> = mutableListOf()
+    val password: MutableList<Char> = mutableListOf()
 
     for (i in 0 until length) {
         if (i % 2 == 0) {
-            password.add(digits.random().toString())
+            password.add(digits.random())
         } else {
-            password.add(symbols.random().toString())
+            password.add(symbols.random())
         }
     }
 
