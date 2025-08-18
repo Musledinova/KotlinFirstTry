@@ -9,8 +9,7 @@ fun main() {
 
 fun generatePassword(length: Int): String {
     val digits = ('0'..'9')
-    val symbols = CharRange('!', '/').joinToString("")
-
+    val symbols = ' '..'/'
     val password: MutableList<Char> = mutableListOf()
 
     for (i in 0 until length) {
