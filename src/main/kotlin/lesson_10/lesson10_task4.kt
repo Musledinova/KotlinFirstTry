@@ -38,7 +38,7 @@ fun newRound(): Boolean {
     }
 }
 
-fun getDiceValue(player: String): Int {
+private fun getDiceValue(player: String): Int {
     println("Ходит $player. Брось кости.")
     return (1..6).random()
 }
