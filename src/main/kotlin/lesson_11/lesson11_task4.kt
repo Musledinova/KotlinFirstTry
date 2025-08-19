@@ -5,20 +5,20 @@ class Category(
     val title: String,
     val picture: String,
     val description: String,
-    val recipe: MutableList<String> = mutableListOf(),
+    val recipe: List<Recipes>
 )
 
-class Recipe(
+class Recipes(
     val id: String,
     val title: String,
     val picture: String,
     val isFavorite: Boolean = false,
     val serve: Int,
-    val ingredients: List<Ingredient>,
+    val ingredients: List<Ingredients>,
     val preparationSteps: List<String>,
 )
 
-class Ingredient(
+class Ingredients(
     val name: String,
     val amount: String,
     val unit: IngredientUnits,
