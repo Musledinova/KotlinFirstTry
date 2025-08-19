@@ -10,7 +10,7 @@ fun main() {
     println(getWinner(computer, user))
 }
 
-fun getDiceValue(player: String): Int {
+private fun getDiceValue(player: String): Int {
     val range = 1..6
     println("Ходит $player. Брось кости.")
     return range.random()
