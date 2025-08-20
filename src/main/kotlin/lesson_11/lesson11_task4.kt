@@ -5,10 +5,10 @@ class Category(
     val title: String,
     val picture: String,
     val description: String,
-    val recipe: List<Recipes>
+    val recipes: List<Recipe>
 )
 
-class Recipes(
+class Recipe(
     val id: String,
     val title: String,
     val picture: String,
