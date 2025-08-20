@@ -34,17 +34,14 @@ fun main() {
         )
     }
 
-    val dayTemperatureMap: Map<Int, Int> =
-        List(dataSet.size) { index -> (index + 1) to dataSet[index].dayTemperature }.toMap()
-
     val nightTemperatureMap: Map<Int, Int> =
         List(dataSet.size) { index -> (index + 1) to dataSet[index].nightTemperature }.toMap()
 
     val isPrecipitationCount = dataSet.count { it.isPrecipitation }
 
-    val dayTemperatureAverage = dayTemperatureMap.values.average().toInt()
+    val dayTemperatureAverage = dataSet.map { it.dayTemperature }.average().toInt()
 
-    val nightTemperatureAverage = nightTemperatureMap.values.average().toInt()
+    val nightTemperatureAverage = dataSet.map { it.nightTemperature }.average().toInt()
 
     println("Количество дней с осадками: $isPrecipitationCount")
 
