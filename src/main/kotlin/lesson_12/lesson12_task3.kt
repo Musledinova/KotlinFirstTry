@@ -7,14 +7,9 @@ class DailyWeatherThirdPart(
     nightTemperature: Int,
     isPrecipitation: Boolean,
 ) {
-    var dayTemperature = 250
-    var nightTemperature = 200
-    var isPrecipitation = false
-
-    init {
-        this.dayTemperature = dayTemperature - KELVIN_TO_CELSIUS
-        this.nightTemperature = nightTemperature - KELVIN_TO_CELSIUS
-    }
+    val dayTemperature = dayTemperature - KELVIN_TO_CELSIUS
+    val nightTemperature = nightTemperature - KELVIN_TO_CELSIUS
+    val isPrecipitation = isPrecipitation
 
     fun printDailyWeatherThirdPart() {
         println("Погода днем: $dayTemperature, погода ночью: $nightTemperature, впадание осадков: $isPrecipitation")
