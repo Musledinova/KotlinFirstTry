@@ -4,15 +4,15 @@ import java.util.*
 
 class Forum {
     val member: MutableList<ForumMember> = arrayListOf()
-    val message: MutableList<ForumMessages> = arrayListOf()
+    val message: MutableList<ForumMessage> = arrayListOf()
 
     fun createNewUser(userName: String): ForumMember {
         val newMember =
-            ForumMemberBuilder()
-                .apply {
-                    userId = UUID.randomUUID()
-                    this.userName = userName
-                }.build()
+            ForumMember
+                .Builder()
+                .userId(Random().nextInt())
+                .userName(userName)
+                .build()
 
         member.add(newMember)
 
@@ -20,17 +20,18 @@ class Forum {
     }
 
     fun createNewMessage(
-        userId: UUID,
+        userId: Int,
         text: String = "",
     ) {
         val member = member.firstOrNull { it.userId == userId }
         if (member != null) {
             val newMessage =
-                ForumMessagesBuilder()
-                    .apply {
-                        authorId = userId
-                        message = text
-                    }.build()
+                ForumMessage
+                    .Builder()
+                    .authorId(userId)
+                    .message(text)
+                    .build()
+
             message.add(newMessage)
         } else {
             println("Пользователь с id=$userId не найден!")
@@ -46,27 +47,35 @@ class Forum {
 }
 
 data class ForumMember(
-    var userId: UUID,
+    var userId: Int,
     var userName: String,
-)
+) {
+    data class Builder(
+        var userId: Int = 0,
+        var userName: String = "",
+    ) {
+        fun userId(userId: Int) = apply { this.userId = userId }
 
-class ForumMemberBuilder {
-    var userId = UUID(0L, 0L)
-    var userName = ""
+        fun userName(userName: String) = apply { this.userName = userName }
 
-    fun build(): ForumMember = ForumMember(userId, userName)
+        fun build() = ForumMember(userId, userName)
+    }
 }
 
-data class ForumMessages(
-    val authorId: UUID,
+data class ForumMessage(
+    val authorId: Int,
     val message: String,
-)
+) {
+    data class Builder(
+        var authorId: Int = 0,
+        var message: String = "",
+    ) {
+        fun authorId(authorId: Int) = apply { this.authorId = authorId }
 
-class ForumMessagesBuilder {
-    var authorId = UUID(0L, 0L)
-    var message = ""
+        fun message(message: String) = apply { this.message = message }
 
-    fun build(): ForumMessages = ForumMessages(authorId, message)
+        fun build() = ForumMessage(authorId, message)
+    }
 }
 
 fun main() {
