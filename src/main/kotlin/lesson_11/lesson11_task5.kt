@@ -7,15 +7,8 @@ class Forum {
     val message: MutableList<ForumMessage> = arrayListOf()
 
     fun createNewUser(userName: String): ForumMember {
-        val newMember =
-            ForumMember
-                .Builder()
-                .userId(Random().nextInt())
-                .userName(userName)
-                .build()
-
+        val newMember = ForumMember(Random().nextInt(), userName)
         member.add(newMember)
-
         return newMember
     }
 
@@ -25,12 +18,7 @@ class Forum {
     ) {
         val member = member.firstOrNull { it.userId == userId }
         if (member != null) {
-            val newMessage =
-                ForumMessage
-                    .Builder()
-                    .authorId(userId)
-                    .message(text)
-                    .build()
+            val newMessage = ForumMessage(userId, text)
 
             message.add(newMessage)
         } else {
@@ -49,34 +37,12 @@ class Forum {
 data class ForumMember(
     var userId: Int,
     var userName: String,
-) {
-    data class Builder(
-        var userId: Int = 0,
-        var userName: String = "",
-    ) {
-        fun userId(userId: Int) = apply { this.userId = userId }
-
-        fun userName(userName: String) = apply { this.userName = userName }
-
-        fun build() = ForumMember(userId, userName)
-    }
-}
+)
 
 data class ForumMessage(
     val authorId: Int,
     val message: String,
-) {
-    data class Builder(
-        var authorId: Int = 0,
-        var message: String = "",
-    ) {
-        fun authorId(authorId: Int) = apply { this.authorId = authorId }
-
-        fun message(message: String) = apply { this.message = message }
-
-        fun build() = ForumMessage(authorId, message)
-    }
-}
+)
 
 fun main() {
     val newForum = Forum()
