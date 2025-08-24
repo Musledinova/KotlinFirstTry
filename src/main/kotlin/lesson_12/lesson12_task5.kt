@@ -2,9 +2,9 @@ package org.example.lesson_12
 
 import kotlin.random.Random
 
-const val KELVIN_TO_CELSIUS = 275
+private const val KELVIN_TO_CELSIUS = 275
 
-class DailyWeatherFourthPart(
+class DailyWeatherTask5(
     dayTemperature: Int,
     nightTemperature: Int,
     isPrecipitation: Boolean,

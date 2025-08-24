@@ -1,6 +1,6 @@
 package org.example.lesson_12
 
-const val KELVIN_TO_CELSIUS = 275
+private const val KELVIN_TO_CELSIUS = 275
 
 class DailyWeatherFourthPart(
     dayTemperature: Int,
