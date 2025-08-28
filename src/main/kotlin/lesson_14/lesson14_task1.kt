@@ -1,36 +1,30 @@
 package org.example.lesson_14
 
 open class Liner(
-    val speed: Int = 60,
-    val cargoCapacity: Int = 2000,
-    val passengerCapacity: Int = 300,
+    open val speed: Int = 60,
+    open val cargoCapacity: Int = 2000,
+    open val passengerCapacity: Int = 300,
 )
 
-class Cargo(
-    speed: Int,
-    cargo: Int,
-    passengerCapacity: Int,
-) : Liner(
-        speed,
-        cargo,
-        passengerCapacity,
+class Cargo :
+    Liner(
+        speed = 55,
+        cargoCapacity = 3000,
+        passengerCapacity = 150,
     )
 
 class Icebreaker(
-    speed: Int,
-    cargo: Int,
-    passengerCapacity: Int,
-    val breakIce: Boolean,
+    val breakIce: Boolean = true,
 ) : Liner(
-        speed,
-        cargo,
-        passengerCapacity,
+        speed = 50,
+        cargoCapacity = 1000,
+        passengerCapacity = 50,
     )
 
 fun main() {
     val liner = Liner()
 
-    val cargo = Cargo(55, 3000, 150)
+    val cargo = Cargo()
 
-    val icebreaker = Icebreaker(50, 1000, 50, true)
+    val icebreaker = Icebreaker()
 }
