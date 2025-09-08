@@ -1,7 +1,5 @@
 package org.example.lesson_14
 
-import kotlin.random.Random
-
 class Chat {
     val messages = mutableListOf<BaseMessage>()
 
@@ -9,7 +7,7 @@ class Chat {
         text: String,
         author: String,
     ): Int {
-        val newMessage = Message(Random.nextInt(1, 100), text, author)
+        val newMessage = Message((1..100).random(), text, author)
         messages.add(newMessage)
         return newMessage.messageId
     }
@@ -19,7 +17,7 @@ class Chat {
         author: String,
         parentMessageId: Int,
     ): Int {
-        val newThreadMessage = ChildMessage(Random.nextInt(1, 100), text, author, parentMessageId)
+        val newThreadMessage = ChildMessage((1..100).random(), text, author, parentMessageId)
         messages.add(newThreadMessage)
         return newThreadMessage.messageId
     }
